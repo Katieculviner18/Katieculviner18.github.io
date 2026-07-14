@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kathleen Culviner — Operations & Team Leadership</title>
+<meta name="description" content="Kathleen Culviner — Operations and team leadership professional in the solar industry.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg: #131720;
+    --bg-alt: #171c26;
+    --surface: #1b212d;
+    --surface-line: #2a3140;
+    --text: #eceef2;
+    --text-muted: #8e97a8;
+    --text-faint: #5c6577;
+    --gold: #d6a756;
+    --gold-dim: #8a713d;
+    --teal: #5cada3;
+    --radius: 4px;
+    --maxw: 880px;
+  }
+
+  *{ box-sizing:border-box; }
+  html{ scroll-behavior:smooth; }
+
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--text);
+    font-family:'Inter', sans-serif;
+    font-size:16px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  .wrap{ max-width:var(--maxw); margin:0 auto; padding:0 28px; }
+
+  a{ color:inherit; }
+
+  /* ---------- Background grid texture ---------- */
+  .grid-texture{
+    position:fixed; inset:0; z-index:0; pointer-events:none;
+    background-image:
+      linear-gradient(to right, rgba(255,255,255,0.025) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255,255,255,0.025) 1px, transparent 1px);
+    background-size: 48px 48px;
+    mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, black 40%, transparent 90%);
+  }
+
+  /* ---------- Header / nav ---------- */
+  header{
+    position:sticky; top:0; z-index:10;
+    background:rgba(19,23,32,0.86);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--surface-line);
+  }
+  .navbar{
+    display:flex; justify-content:space-between; align-items:center;
+    padding:16px 28px; max-width:var(--maxw); margin:0 auto;
+  }
+  .navmark{
+    font-family:'IBM Plex Mono', monospace; font-size:13px; letter-spacing:0.04em;
+    color:var(--text-muted);
+    display:flex; align-items:center; gap:8px;
+  }
+  .navmark .dot{
+    width:7px; height:7px; border-radius:50%; background:var(--gold);
+    box-shadow:0 0 0 3px rgba(214,167,86,0.15);
+  }
+  .navlinks{ display:flex; gap:24px; font-size:14px; }
+  .navlinks a{
+    text-decoration:none; color:var(--text-muted); transition:color .15s ease;
+  }
+  .navlinks a:hover, .navlinks a:focus-visible{ color:var(--gold); }
+
+  /* ---------- Hero ---------- */
+  .hero{ position:relative; z-index:1; padding:88px 0 64px; }
+  .eyebrow{
+    font-family:'IBM Plex Mono', monospace; font-size:12.5px; letter-spacing:0.12em;
+    text-transform:uppercase; color:var(--gold);
+    display:flex; align-items:center; gap:10px; margin-bottom:22px;
+  }
+  .eyebrow::before{
+    content:''; width:22px; height:1px; background:var(--gold-dim);
+  }
+  h1{
+    font-family:'Fraunces', serif; font-weight:500; font-optical-sizing:auto;
+    font-size:clamp(2.4rem, 5.4vw, 3.8rem);
+    line-height:1.05; letter-spacing:-0.01em;
+    margin:0 0 18px;
+  }
+  .hero-role{
+    font-size:1.15rem; color:var(--text-muted); max-width:620px; margin:0 0 28px;
+  }
+  .hero-summary{
+    font-size:1rem; color:var(--text-muted); max-width:640px; margin:0 0 36px;
+  }
+  .hero-actions{ display:flex; flex-wrap:wrap; gap:14px; align-items:center; }
+  .btn{
+    font-family:'Inter', sans-serif; font-weight:600; font-size:14px;
+    padding:12px 22px; border-radius:var(--radius);
+    text-decoration:none; display:inline-flex; align-items:center; gap:8px;
+    transition:transform .15s ease, background .15s ease, border-color .15s ease;
+    border:1px solid transparent;
+  }
+  .btn-primary{ background:var(--gold); color:#181205; }
+  .btn-primary:hover{ transform:translateY(-1px); background:#e4b768; }
+  .btn-ghost{ border-color:var(--surface-line); color:var(--text); }
+  .btn-ghost:hover{ border-color:var(--gold-dim); color:var(--gold); }
+  .contact-line{
+    font-family:'IBM Plex Mono', monospace; font-size:13px; color:var(--text-faint);
+    display:flex; flex-wrap:wrap; gap:6px 18px; margin-top:28px;
+  }
+  .contact-line a{ text-decoration:none; color:var(--text-faint); border-bottom:1px dotted var(--text-faint); }
+  .contact-line a:hover{ color:var(--gold); border-color:var(--gold); }
+
+  /* ---------- Section shell ---------- */
+  section{ position:relative; z-index:1; padding:64px 0; border-top:1px solid var(--surface-line); }
+  .section-head{ margin-bottom:36px; }
+  .section-tag{
+    font-family:'IBM Plex Mono', monospace; font-size:12px; letter-spacing:0.1em;
+    text-transform:uppercase; color:var(--text-faint); margin:0 0 8px;
+  }
+  .section-title{
+    font-family:'Fraunces', serif; font-weight:500; font-size:1.7rem; margin:0;
+  }
+
+  /* ---------- Impact ledger ---------- */
+  .ledger{
+    display:grid; grid-template-columns:repeat(3, 1fr); gap:1px;
+    background:var(--surface-line); border:1px solid var(--surface-line); border-radius:var(--radius);
+    overflow:hidden;
+  }
+  .ledger-item{
+    background:var(--surface); padding:26px 22px; position:relative;
+  }
+  .ledger-item .signal{
+    width:6px; height:6px; border-radius:50%; background:var(--teal);
+    display:inline-block; margin-bottom:14px;
+    box-shadow:0 0 0 3px rgba(92,173,163,0.14);
+  }
+  .ledger-item .stat{
+    font-family:'IBM Plex Mono', monospace; font-size:1.9rem; font-weight:500;
+    color:var(--text); display:block; margin-bottom:6px; letter-spacing:-0.01em;
+  }
+  .ledger-item .stat-label{
+    font-size:13px; color:var(--text-muted); line-height:1.45; display:block;
+  }
+
+  /* ---------- Experience ---------- */
+  .role{
+    padding:28px 0; border-bottom:1px solid var(--surface-line);
+  }
+  .role:last-child{ border-bottom:none; padding-bottom:0; }
+  .role:first-child{ padding-top:0; }
+  .role-head{
+    display:flex; justify-content:space-between; align-items:baseline; gap:16px;
+    flex-wrap:wrap; margin-bottom:6px;
+  }
+  .role-title{ font-family:'Fraunces', serif; font-size:1.15rem; font-weight:500; margin:0; }
+  .role-dates{
+    font-family:'IBM Plex Mono', monospace; font-size:12.5px; color:var(--text-faint);
+    white-space:nowrap;
+  }
+  .role-company{
+    font-size:13.5px; color:var(--gold); margin:0 0 14px; font-weight:500;
+  }
+  .role ul{ margin:0; padding-left:18px; color:var(--text-muted); font-size:14.5px; }
+  .role li{ margin-bottom:7px; }
+  .role li::marker{ color:var(--gold-dim); }
+  .company-group{ margin-bottom:8px; }
+  .company-group > .company-name{
+    font-family:'IBM Plex Mono', monospace; font-size:12px; letter-spacing:0.08em;
+    text-transform:uppercase; color:var(--text-faint); margin:0 0 18px;
+  }
+
+  /* ---------- Skills ---------- */
+  .skill-groups{ display:grid; grid-template-columns:1fr 1fr; gap:28px 40px; }
+  .skill-group h3{
+    font-family:'IBM Plex Mono', monospace; font-size:12px; letter-spacing:0.08em;
+    text-transform:uppercase; color:var(--text-faint); font-weight:500; margin:0 0 12px;
+  }
+  .chips{ display:flex; flex-wrap:wrap; gap:8px; }
+  .chip{
+    font-family:'IBM Plex Mono', monospace; font-size:12.5px;
+    padding:6px 11px; border-radius:3px; border:1px solid var(--surface-line);
+    color:var(--text-muted); background:var(--bg-alt);
+  }
+
+  /* ---------- Education ---------- */
+  .edu-item{ display:flex; justify-content:space-between; gap:16px; padding:16px 0; border-bottom:1px solid var(--surface-line); flex-wrap:wrap; }
+  .edu-item:last-child{ border-bottom:none; }
+  .edu-degree{ font-family:'Fraunces', serif; font-size:1.05rem; margin:0 0 4px; }
+  .edu-school{ font-size:13.5px; color:var(--text-muted); margin:0; }
+  .edu-detail{ font-size:13px; color:var(--text-faint); margin:4px 0 0; }
+  .edu-year{ font-family:'IBM Plex Mono', monospace; font-size:12.5px; color:var(--text-faint); }
+
+  /* ---------- Footer ---------- */
+  footer{
+    position:relative; z-index:1; padding:40px 0 60px; text-align:center;
+  }
+  footer p{ font-size:13px; color:var(--text-faint); margin:0; }
+  footer a{ color:var(--gold); text-decoration:none; }
+
+  /* ---------- Reveal on scroll ---------- */
+  .reveal{ opacity:0; transform:translateY(14px); transition:opacity .6s ease, transform .6s ease; }
+  .reveal.in{ opacity:1; transform:none; }
+  @media (prefers-reduced-motion: reduce){
+    .reveal{ opacity:1; transform:none; transition:none; }
+    html{ scroll-behavior:auto; }
+  }
+
+  /* ---------- Responsive ---------- */
+  @media (max-width:720px){
+    .ledger{ grid-template-columns:1fr 1fr; }
+    .skill-groups{ grid-template-columns:1fr; }
+    .navlinks{ display:none; }
+  }
+  @media (max-width:460px){
+    .ledger{ grid-template-columns:1fr; }
+  }
+
+  /* ---------- Focus visibility ---------- */
+  a:focus-visible, button:focus-visible{
+    outline:2px solid var(--gold); outline-offset:2px;
+  }
+</style>
+</head>
+<body>
+
+<div class="grid-texture" aria-hidden="true"></div>
+
+<header>
+  <div class="navbar">
+    <div class="navmark"><span class="dot" aria-hidden="true"></span>K. CULVINER — OPS LOG</div>
+    <nav class="navlinks">
+      <a href="#impact">Impact</a>
+      <a href="#experience">Experience</a>
+      <a href="#skills">Skills</a>
+      <a href="#education">Education</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero wrap">
+    <p class="eyebrow">Downey, CA · Solar Operations</p>
+    <h1>Kathleen Culviner</h1>
+    <p class="hero-role">Operations &amp; Team Leadership Professional</p>
+    <p class="hero-summary">Six-plus years in the solar industry, progressing from front-line customer support into supervisor and interim-manager roles. I build training programs and process documentation from the ground up, lead teams of up to 14 through coaching and performance management, and resolve high-risk escalations across cross-functional stakeholders — with a track record of turning backlogs and quality gaps into measurable results.</p>
+    <div class="hero-actions">
+      <a class="btn btn-primary" href="mailto:kathleenculviner18@gmail.com">Get in touch</a>
+      <a class="btn btn-ghost" href="Kathleen_Culviner_Resume.pdf" target="_blank" rel="noopener">Download résumé (PDF)</a>
+    </div>
+    <p class="contact-line">
+      <span>Downey, CA 90242</span>
+      <a href="tel:19519060685">951-906-0685</a>
+      <a href="mailto:kathleenculviner18@gmail.com">kathleenculviner18@gmail.com</a>
+    </p>
+  </section>
+
+  <section id="impact" class="wrap reveal">
+    <div class="section-head">
+      <p class="section-tag">Impact Ledger</p>
+      <h2 class="section-title">Results, logged</h2>
+    </div>
+    <div class="ledger">
+      <div class="ledger-item"><span class="signal" aria-hidden="true"></span><span class="stat">75%→90%+</span><span class="stat-label">Department quality average, raised through coaching &amp; performance management</span></div>
+      <div class="ledger-item"><span class="signal" aria-hidden="true"></span><span class="stat">$1.2M</span><span class="stat-label">Secured funding by resolving high-risk, unresponsive post-installation projects</span></div>
+      <div class="ledger-item"><span class="signal" aria-hidden="true"></span><span class="stat">54%</span><span class="stat-label">Cut to an installed-not-funded queue — from ~420 to 195 projects</span></div>
+      <div class="ledger-item"><span class="signal" aria-hidden="true"></span><span class="stat">14</span><span class="stat-label">Direct reports led as Sales Concierge Supervisor</span></div>
+      <div class="ledger-item"><span class="signal" aria-hidden="true"></span><span class="stat">479</span><span class="stat-label">High-level escalations triaged and resolved at a 97% success rate</span></div>
+      <div class="ledger-item"><span class="signal" aria-hidden="true"></span><span class="stat">300+</span><span class="stat-label">Legacy projects led through completion at a 90% success rate</span></div>
+    </div>
+  </section>
+
+  <section id="experience" class="wrap reveal">
+    <div class="section-head">
+      <p class="section-tag">Experience</p>
+      <h2 class="section-title">Six years, one company, seven roles</h2>
+    </div>
+
+    <div class="company-group">
+      <p class="company-name">Freedom Forever, LLC — Temecula, CA · Nov 2019 – Mar 2026</p>
+    </div>
+
+    <div class="role">
+      <div class="role-head">
+        <h3 class="role-title">Project Support Tier II Specialist</h3>
+        <span class="role-dates">Dec 2025 – Mar 2026</span>
+      </div>
+      <ul>
+        <li>Partnered with a colleague to build the Project Support team's onboarding training materials from scratch within a two-week sprint, improving new-hire ramp-up.</li>
+        <li>Facilitated onboarding for 10 team members monthly — training sessions, systems access, and role-readiness resources.</li>
+        <li>Co-designed a centralized OneNote knowledge hub for templates, work instructions, and SOPs.</li>
+      </ul>
+    </div>
+
+    <div class="role">
+      <div class="role-head">
+        <h3 class="role-title">Project Support Specialist</h3>
+        <span class="role-dates">Jun 2025 – Dec 2025</span>
+      </div>
+      <ul>
+        <li>Managed 400+ projects through their solar lifecycle in LightSpeed, consistently meeting timeline expectations.</li>
+        <li>Exceeded KPI metrics by 15%, reviewing 150 projects weekly; delivered 100% quality across six months.</li>
+        <li>Led the region in Install Ready volume — top-10 of up to 45 peers in 2 of 4 months under new scoring criteria.</li>
+      </ul>
+    </div>
+
+    <div class="role">
+      <div class="role-head">
+        <h3 class="role-title">Regional Solutions Manager</h3>
+        <span class="role-dates">Jun 2024 – May 2025</span>
+      </div>
+      <ul>
+        <li>Sustained $2M+ in daily EverBright M2 payments and cut the installed-not-funded backlog 54%, from ~420 to 195 projects.</li>
+        <li>Orchestrated completion of 242 complex projects within five months by eliminating operational, financial, and technical constraints.</li>
+        <li>Acted as interim manager for a 7-person sales support team during a leadership transition, while continuing to manage 300+ legacy projects at a 90% success rate.</li>
+        <li>Trained Project Support II Specialists on layout, pricing, and change-order procedures across Sunrun, EverBright, Enfin, PayKeeper, GoodLeap, and Credit Human.</li>
+      </ul>
+    </div>
+
+    <div class="role">
+      <div class="role-head">
+        <h3 class="role-title">Sales Concierge Supervisor</h3>
+        <span class="role-dates">Nov 2022 – Jun 2024</span>
+      </div>
+      <ul>
+        <li>Managed and coached a team of 14 Sales Concierge representatives in Zendesk and RingCentral.</li>
+        <li>Triaged and resolved 479+ high-level escalations at a 97% success rate.</li>
+        <li>Maintained under-24-hour SLA across two queues, ~200 tickets daily, through staff training and accuracy audits.</li>
+        <li>Supported development of an AI summarization tool for the company portal alongside full supervisory duties.</li>
+      </ul>
+    </div>
+
+    <div class="role">
+      <div class="role-head">
+        <h3 class="role-title">Sales Concierge Lead</h3>
+        <span class="role-dates">Nov 2021 – Nov 2022</span>
+      </div>
+      <ul>
+        <li>Led a team of 6–8 Sales Concierge professionals through coaching, evaluations, and day-to-day guidance.</li>
+        <li>Cleared an 8+ day change-order backlog to under 24-hour turnaround and trained the team to maintain the new SLA.</li>
+      </ul>
+    </div>
+
+    <div class="role">
+      <div class="role-head">
+        <h3 class="role-title">Sales Concierge II</h3>
+        <span class="role-dates">Feb 2021 – Nov 2021</span>
+      </div>
+      <ul>
+        <li>Resolved an average of 50 Tier II escalated projects daily, keeping work moving efficiently.</li>
+        <li>Monitored real-time call queue volume in Vonage, stepping in during high-traffic periods to protect service levels.</li>
+      </ul>
+    </div>
+
+    <div class="role">
+      <div class="role-head">
+        <h3 class="role-title">Sales Concierge</h3>
+        <span class="role-dates">Nov 2019 – Feb 2021</span>
+      </div>
+      <ul>
+        <li>Managed 50–80 inbound calls daily in Vonage with a 3–5 minute average handle time.</li>
+        <li>Reviewed project submissions in Podio for contract, title, and financial accuracy ahead of next steps.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="skills" class="wrap reveal">
+    <div class="section-head">
+      <p class="section-tag">Skills &amp; Systems</p>
+      <h2 class="section-title">What I run on</h2>
+    </div>
+    <div class="skill-groups">
+      <div class="skill-group">
+        <h3>Core Skills</h3>
+        <div class="chips">
+          <span class="chip">Process Improvement</span>
+          <span class="chip">Escalation Management</span>
+          <span class="chip">KPI Tracking</span>
+          <span class="chip">Quality Assurance &amp; Auditing</span>
+          <span class="chip">Performance Reporting</span>
+          <span class="chip">Training Material Design</span>
+          <span class="chip">Stakeholder Engagement</span>
+          <span class="chip">Cross-Functional Collaboration</span>
+          <span class="chip">Call Center Leadership</span>
+          <span class="chip">Omnichannel Management</span>
+          <span class="chip">Constructive Feedback</span>
+          <span class="chip">Onboarding / Offboarding</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h3>CRM &amp; Communication</h3>
+        <div class="chips">
+          <span class="chip">Zendesk</span>
+          <span class="chip">Intercom</span>
+          <span class="chip">Salesforce</span>
+          <span class="chip">RingCentral</span>
+          <span class="chip">DialPad</span>
+          <span class="chip">Microsoft Teams</span>
+          <span class="chip">Vonage</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h3>Solar Design &amp; Financial</h3>
+        <div class="chips">
+          <span class="chip">Aurora</span>
+          <span class="chip">Sunrun Brightpath</span>
+          <span class="chip">EverBright</span>
+          <span class="chip">GoodLeap</span>
+          <span class="chip">Enfin</span>
+          <span class="chip">PayKeeper</span>
+          <span class="chip">Credit Human</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h3>Documentation &amp; Tracking</h3>
+        <div class="chips">
+          <span class="chip">LightSpeed</span>
+          <span class="chip">Asana</span>
+          <span class="chip">Podio</span>
+          <span class="chip">DocuSign</span>
+          <span class="chip">Adobe Acrobat</span>
+          <span class="chip">SharePoint</span>
+          <span class="chip">PowerClerk</span>
+          <span class="chip">Workday</span>
+          <span class="chip">Paycom</span>
+          <span class="chip">Excel · PowerPoint · Word</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="education" class="wrap reveal">
+    <div class="section-head">
+      <p class="section-tag">Education</p>
+      <h2 class="section-title">Foundation</h2>
+    </div>
+    <div class="edu-item">
+      <div>
+        <p class="edu-degree">Bachelor of Arts in Psychology, cum laude</p>
+        <p class="edu-school">Whittier College</p>
+        <p class="edu-detail">Dean's List · Outstanding Academic Achievement in major · GPA 3.75 · John Greenleaf scholarship recipient</p>
+      </div>
+      <span class="edu-year">2019</span>
+    </div>
+    <div class="edu-item">
+      <div>
+        <p class="edu-degree">Diploma, General Education</p>
+        <p class="edu-school">Hamilton High School</p>
+        <p class="edu-detail">California Scholarship Federation · National Honor Society · Yearbook · Varsity Basketball · GPA 4.2</p>
+      </div>
+      <span class="edu-year">2015</span>
+    </div>
+  </section>
+</main>
+
+<footer id="contact">
+  <div class="wrap">
+    <p>Downey, CA · <a href="mailto:kathleenculviner18@gmail.com">kathleenculviner18@gmail.com</a> · 951-906-0685</p>
+  </div>
+</footer>
+
+<script>
+  (function(){
+    var items = document.querySelectorAll('.reveal');
+    if(!('IntersectionObserver' in window)){
+      items.forEach(function(el){ el.classList.add('in'); });
+      return;
+    }
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(entry.isIntersecting){
+          entry.target.classList.add('in');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    items.forEach(function(el){ io.observe(el); });
+  })();
+</script>
+
+</body>
+</html>
